@@ -8,12 +8,12 @@ function Mainbox() {
       <Box sx={{ 
         display: 'flex', 
         alignItems: 'center', 
-        gap: 3,
-        p: 3,
+        gap: 2,
+        p: 2,
         pt: 2
       }}>
         <img 
-          src="src/assets/20241012_110339.jpg" 
+          src="src/assets/" 
           alt="Varun Mohanta"
           style={{
             width: '80px',
