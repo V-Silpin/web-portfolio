@@ -8,7 +8,8 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from '@mui/material/ListItemIcon';
 
-function Sidebar() {
+import PropTypes from 'prop-types';
+function Sidebar({ selectedSection, onSectionChange }) {
     const drawerWidth = 240;
 
     return (
@@ -35,17 +36,21 @@ function Sidebar() {
           <List sx={{ flexGrow: 1 }}>
             {['About', 'Projects', 'Experiences'].map((text) => (
               <ListItem key={text} disablePadding>
-                <ListItemButton sx={{
-                  borderRadius: '8px',
-                  mx: 1,
-                  my: 0.5,
-                  color: 'var(--color-text)',
-                  '&:hover': {
-                    background: 'var(--color-accent)',
-                    color: 'var(--color-bg)',
-                  },
-                  transition: 'var(--transition)',
-                }}>
+                <ListItemButton
+                  sx={{
+                    borderRadius: '8px',
+                    mx: 1,
+                    my: 0.5,
+                    color: selectedSection === text ? 'var(--color-primary)' : 'var(--color-text)',
+                    background: selectedSection === text ? 'var(--color-accent)' : 'none',
+                    '&:hover': {
+                      background: 'var(--color-accent)',
+                      color: 'var(--color-bg)',
+                    },
+                    transition: 'var(--transition)',
+                  }}
+                  onClick={() => onSectionChange(text)}
+                >
                   <ListItemText primary={text} />
                 </ListItemButton>
               </ListItem>
@@ -142,4 +147,8 @@ function Sidebar() {
     );
 }
 
+Sidebar.propTypes = {
+  selectedSection: PropTypes.string.isRequired,
+  onSectionChange: PropTypes.func.isRequired,
+};
 export default Sidebar;
