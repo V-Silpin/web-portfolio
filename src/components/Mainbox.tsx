@@ -1,7 +1,11 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-function Mainbox() {
+import PropTypes from 'prop-types';
+/**
+ * @param {{ selectedSection: string }} props
+ */
+function Mainbox({ selectedSection }: { selectedSection: string }) {
   return (
     <Box sx={{ flex: 1, background: 'var(--color-bg)', minHeight: '100vh', transition: 'var(--transition)', display: 'flex', flexDirection: 'column' }}>
       {/* Image & Name section - at the top */}
@@ -19,7 +23,7 @@ function Mainbox() {
         transition: 'var(--transition)',
       }}>
         <img
-          // src="src/assets/20241012_110339.jpg"
+          src="src/assets/DSC_0323.JPG"
           alt="Varun Mohanta"
           style={{
             width: '80px',
@@ -42,13 +46,37 @@ function Mainbox() {
       </Box>
 
       {/* Rest of your content can go here */}
-      <Box sx={{ p: 3 }}>
-        <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.1em' }}>
-          Hi I love building cool and fun stuff with the current tech.<br />
-          Cause its just for fun and enjoyment.
-        </p>
-      </Box>
+      {selectedSection === 'About' && (
+        <Box sx={{ p: 3 }}>
+          <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.1em' }}>
+            Hi I love building cool and fun stuff with the current tech.<br />
+            Cause its just for fun and enjoyment.
+          </p>
+        </Box>
+      )}
+      {selectedSection === 'Projects' && (
+        <Box sx={{ p: 3 }}>
+          <Typography variant="h5" sx={{ color: 'var(--color-primary)', mb: 2 }}>Projects</Typography>
+          <p style={{ color: 'var(--color-text-secondary)' }}>
+            Coming soon: A showcase of my favorite projects!
+          </p>
+        </Box>
+      )}
+      {selectedSection === 'Experiences' && (
+        <Box sx={{ p: 3 }}>
+          <Typography variant="h5" sx={{ color: 'var(--color-primary)', mb: 2 }}>Experiences</Typography>
+          <p style={{ color: 'var(--color-text-secondary)' }}>
+            Coming soon: My professional and learning journey!
+          </p>
+        </Box>
+      )}
     </Box>
   );
 }
+Mainbox.propTypes = {
+  selectedSection: PropTypes.string.isRequired,
+};
+Mainbox.propTypes = {
+  selectedSection: PropTypes.string.isRequired,
+};
 export default Mainbox;
