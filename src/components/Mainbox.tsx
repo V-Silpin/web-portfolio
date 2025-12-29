@@ -20,26 +20,26 @@ function Mainbox({ selectedSection }: { selectedSection: string }) {
         boxShadow: '0 2px 8px 0 rgba(60,60,60,0.06)',
         borderBottom: '1px solid var(--color-border)',
         mb: 2,
-        transition: 'var(--transition)',
+        transition: 'var(--transition)'
       }}>
         <img
-          src="src/assets/DSC_0323.JPG"
+          src="src/assets/profile-pic.JPG"
           alt="Varun Mohanta"
           style={{
-            width: '80px',
-            height: '80px',
-            borderRadius: '50%',
+            width: '270px',
+            height: '270px',
+            borderRadius: '24px',
             objectFit: 'cover',
-            border: '2px solid var(--color-primary)',
-            boxShadow: '0 2px 8px 0 rgba(60,60,60,0.10)',
+            border: '3px solid var(--color-primary)',
+            boxShadow: '0 4px 16px 0 rgba(60,60,60,0.12)',
             background: 'var(--color-bg-alt)'
           }}
         />
         <Box>
-          <Typography variant="h4" component="h1" sx={{ color: 'var(--color-primary)' }}>
+          <Typography variant="h3" component="h1" sx={{ color: 'var(--color-primary)', fontWeight: 700, fontSize: { xs: '2.2rem', sm: '2.8rem', md: '3.2rem' } }}>
             Varun Mohanta
           </Typography>
-          <Typography variant="h6" sx={{ color: 'var(--color-text-secondary)' }}>
+          <Typography variant="h5" sx={{ color: 'var(--color-text-secondary)', fontSize: { xs: '1.2rem', sm: '1.5rem', md: '1.7rem' } }}>
             Soy Dev
           </Typography>
         </Box>
