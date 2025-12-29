@@ -12,6 +12,8 @@ function App() {
     return 'light';
   });
 
+  const [selectedSection, setSelectedSection] = useState('About');
+
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);
   }, [theme]);
@@ -39,8 +41,8 @@ function App() {
         </button>
       </div>
       <div style={{ display: 'flex', minHeight: '100vh', width: '100vw' }}>
-        <Sidebar />
-        <Mainbox />
+        <Sidebar selectedSection={selectedSection} onSectionChange={setSelectedSection} />
+        <Mainbox selectedSection={selectedSection} />
       </div>
     </>
   );
