@@ -33,6 +33,8 @@ function Sidebar({ selectedSection, onSectionChange }: SidebarProps) {
               color: 'var(--color-text)',
               borderRight: '1px solid var(--color-border)',
               transition: 'var(--transition)',
+              fontWeight: 200,
+              boxShadow: 'var(--shadow-sm)',
             },
           }}
           variant="permanent"
@@ -44,14 +46,20 @@ function Sidebar({ selectedSection, onSectionChange }: SidebarProps) {
               <ListItem key={text} disablePadding>
                 <ListItemButton
                   sx={{
-                    borderRadius: '8px',
+                    borderRadius: '12px',
                     mx: 1,
                     my: 0.5,
-                    color: selectedSection === text ? 'var(--color-primary)' : 'var(--color-text)',
-                    background: selectedSection === text ? 'var(--color-accent)' : 'none',
+                    fontWeight: 200,
+                    letterSpacing: '0.5px',
+                    color: selectedSection === text ? '#ffffff' : 'var(--color-text)',
+                    background: selectedSection === text ? 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)' : 'none',
+                    boxShadow: selectedSection === text ? 'var(--shadow-md)' : 'none',
                     '&:hover': {
-                      background: 'var(--color-accent)',
-                      color: 'var(--color-bg)',
+                      background: selectedSection === text 
+                        ? 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)'
+                        : 'var(--color-bg-alt)',
+                      color: selectedSection === text ? '#ffffff' : 'var(--color-primary)',
+                      boxShadow: 'var(--shadow-sm)',
                     },
                     transition: 'var(--transition)',
                   }}
@@ -77,17 +85,20 @@ function Sidebar({ selectedSection, onSectionChange }: SidebarProps) {
               <ListItem sx={{ p: 0 }}>
                 <a href="https://www.linkedin.com/in/varun-mohanta-620764282/" target="_blank" rel="noopener noreferrer" style={{ display: 'flex' }}>
                   <ListItemButton sx={{
-                    borderRadius: '12px',
+                    borderRadius: '16px',
                     background: 'var(--color-card)',
                     color: 'var(--color-primary)',
-                    border: '2px solid var(--color-btn-border, var(--color-primary))',
+                    border: '1px solid var(--color-border)',
                     boxSizing: 'border-box',
-                    minWidth: 48,
-                    minHeight: 48,
+                    minWidth: 52,
+                    minHeight: 52,
+                    boxShadow: 'var(--shadow-sm)',
                     '&:hover': {
-                      background: 'var(--color-accent)',
-                      color: 'var(--color-bg)',
-                      borderColor: 'var(--color-link-hover)',
+                      background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)',
+                      color: '#ffffff',
+                      borderColor: 'transparent',
+                      boxShadow: 'var(--shadow-md)',
+                      transform: 'translateY(-2px)',
                     },
                     transition: 'var(--transition)',
                   }}>
@@ -101,17 +112,20 @@ function Sidebar({ selectedSection, onSectionChange }: SidebarProps) {
               <ListItem sx={{ p: 0 }}>
                 <a href="https://github.com/V-Silpin" target="_blank" rel="noopener noreferrer" style={{ display: 'flex' }}>
                   <ListItemButton sx={{
-                    borderRadius: '12px',
+                    borderRadius: '16px',
                     background: 'var(--color-card)',
                     color: 'var(--color-primary)',
-                    border: '2px solid var(--color-btn-border, var(--color-primary))',
+                    border: '1px solid var(--color-border)',
                     boxSizing: 'border-box',
-                    minWidth: 48,
-                    minHeight: 48,
+                    minWidth: 52,
+                    minHeight: 52,
+                    boxShadow: 'var(--shadow-sm)',
                     '&:hover': {
-                      background: 'var(--color-accent)',
-                      color: 'var(--color-bg)',
-                      borderColor: 'var(--color-link-hover)',
+                      background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)',
+                      color: '#ffffff',
+                      borderColor: 'transparent',
+                      boxShadow: 'var(--shadow-md)',
+                      transform: 'translateY(-2px)',
                     },
                     transition: 'var(--transition)',
                   }}>
@@ -125,17 +139,20 @@ function Sidebar({ selectedSection, onSectionChange }: SidebarProps) {
               <ListItem sx={{ p: 0 }}>
                 <a href="https://x.com/Master_MalloC" target="_blank" rel="noopener noreferrer" style={{ display: 'flex' }}>
                   <ListItemButton sx={{
-                    borderRadius: '12px',
+                    borderRadius: '16px',
                     background: 'var(--color-card)',
                     color: 'var(--color-primary)',
-                    border: '2px solid var(--color-btn-border, var(--color-primary))',
+                    border: '1px solid var(--color-border)',
                     boxSizing: 'border-box',
-                    minWidth: 48,
-                    minHeight: 48,
+                    minWidth: 52,
+                    minHeight: 52,
+                    boxShadow: 'var(--shadow-sm)',
                     '&:hover': {
-                      background: 'var(--color-accent)',
-                      color: 'var(--color-bg)',
-                      borderColor: 'var(--color-link-hover)',
+                      background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)',
+                      color: '#ffffff',
+                      borderColor: 'transparent',
+                      boxShadow: 'var(--shadow-md)',
+                      transform: 'translateY(-2px)',
                     },
                     transition: 'var(--transition)',
                   }}>
