@@ -17,47 +17,53 @@ body[data-theme='dark'] {
 
 :root {
   /* Typography */
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  font-family: "Nunito Sans", sans-serif;
+  line-height: 1.6;
+  font-weight: 200;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* Theme variables (default: light) */
-  --color-bg: #f5f7fa;
-  --color-bg-alt: #e3e8ee;
-  --color-text: #1a237e;
-  --color-text-secondary: #374151;
-  --color-primary: #1976d2;
-  --color-accent: #00bcd4;
-  --color-card: #fff;
-  --color-border: #e0e0e0;
-  --color-sidebar: #f0f4fa;
-  --color-btn-bg: #1976d2;
-  --color-btn-text: #fff;
-  --color-btn-hover: #1565c0;
-  --color-link: #1976d2;
-  --color-link-hover: #00bcd4;
-  --transition: background 0.3s, color 0.3s;
+  /* Theme variables (default: light) - Modern Minimal Palette */
+  --color-bg: #fafbfc;
+  --color-bg-alt: #f0f3f7;
+  --color-text: #2d3748;
+  --color-text-secondary: #718096;
+  --color-primary: #667eea;
+  --color-accent: #764ba2;
+  --color-card: #ffffff;
+  --color-border: #e2e8f0;
+  --color-sidebar: #f7fafc;
+  --color-btn-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --color-btn-text: #ffffff;
+  --color-btn-hover: linear-gradient(135deg, #5568d3 0%, #63408a 100%);
+  --color-link: #667eea;
+  --color-link-hover: #764ba2;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 body[data-theme='dark'] {
-  --color-bg: #181a1b;
-  --color-bg-alt: #23272f;
-  --color-text: #f5f7fa;
-  --color-text-secondary: #b0b8c1;
-  --color-primary: #90caf9;
-  --color-accent: #00bcd4;
-  --color-card: #23272f;
-  --color-border: #333843;
-  --color-sidebar: #23272f;
-  --color-btn-bg: #23272f;
-  --color-btn-text: #f5f7fa;
-  --color-btn-hover: #1976d2;
-  --color-link: #90caf9;
-  --color-link-hover: #00bcd4;
+  --color-bg: #0f1419;
+  --color-bg-alt: #1a1f29;
+  --color-text: #e2e8f0;
+  --color-text-secondary: #a0aec0;
+  --color-primary: #818cf8;
+  --color-accent: #c084fc;
+  --color-card: #1a1f29;
+  --color-border: #2d3748;
+  --color-sidebar: #151a23;
+  --color-btn-bg: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+  --color-btn-text: #ffffff;
+  --color-btn-hover: linear-gradient(135deg, #6b77e8 0%, #a855f7 100%);
+  --color-link: #818cf8;
+  --color-link-hover: #c084fc;
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
 }
 
 a {
@@ -77,35 +83,50 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   transition: var(--transition);
+  font-weight: 200;
 }
 
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  font-weight: 200;
   color: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h2, h3, h4, h5, h6 {
+  font-weight: 200;
 }
 
 
 button {
-  border-radius: 8px;
-  border: 1px solid var(--color-border);
-  padding: 0.6em 1.2em;
+  border-radius: 12px;
+  border: none;
+  padding: 0.75em 1.5em;
   font-size: 1em;
-  font-weight: 500;
+  font-weight: 200;
   font-family: inherit;
-  background-color: var(--color-btn-bg);
+  background: var(--color-btn-bg);
   color: var(--color-btn-text);
   cursor: pointer;
-  transition: background 0.25s, border-color 0.25s, color 0.25s;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  letter-spacing: 0.5px;
 }
 button:hover {
   background: var(--color-btn-hover);
   color: var(--color-btn-text);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 
