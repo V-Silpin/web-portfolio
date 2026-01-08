@@ -11,16 +11,18 @@ function Mainbox({ selectedSection }: MainboxProps) {
       {/* Image & Name section - at the top */}
       <Box sx={{
         display: 'flex',
+        flexDirection: { xs: 'column', sm: 'row' },
         alignItems: 'center',
-        gap: 4,
-        p: 4,
+        gap: { xs: 2, sm: 3, md: 4 },
+        p: { xs: 2, sm: 3, md: 4 },
         background: 'var(--color-card)',
-        borderRadius: '0 0 24px 24px',
+        borderRadius: { xs: 0, md: '0 0 24px 24px' },
         boxShadow: 'var(--shadow-lg)',
         borderBottom: '1px solid var(--color-border)',
-        mb: 3,
+        mb: { xs: 2, md: 3 },
         transition: 'var(--transition)',
         position: 'relative',
+        textAlign: { xs: 'center', sm: 'left' },
         '&::before': {
           content: '""',
           position: 'absolute',
@@ -31,18 +33,19 @@ function Mainbox({ selectedSection }: MainboxProps) {
           background: 'linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%)',
         }
       }}>
-        <img
+        <Box
+          component="img"
           src="src/assets/profile-pic.JPG"
           alt="Varun Mohanta"
-          style={{
-            width: '180px',
-            height: '180px',
-            borderRadius: '32px',
+          sx={{
+            width: { xs: '120px', sm: '150px', md: '180px' },
+            height: { xs: '120px', sm: '150px', md: '180px' },
+            borderRadius: { xs: '24px', md: '32px' },
             objectFit: 'cover',
             border: 'none',
             boxShadow: 'var(--shadow-lg)',
             background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)',
-            padding: '4px',
+            p: '4px',
           }}
         />
         <Box>
@@ -78,29 +81,37 @@ function Mainbox({ selectedSection }: MainboxProps) {
 
       {/* Content sections */}
       {selectedSection === 'About' && (
-        <Box sx={{ p: 4, display: 'flex', flexDirection: 'row', gap: 4, alignItems: 'center' }}>
-          <Box sx={{ flex: 1 }}>
+        <Box sx={{ 
+          p: { xs: 2, sm: 3, md: 4 }, 
+          display: 'flex', 
+          flexDirection: { xs: 'column', md: 'row' }, 
+          gap: { xs: 3, md: 4 }, 
+          alignItems: 'center' 
+        }}>
+          <Box sx={{ flex: 1, width: '100%' }}>
             <Typography 
               variant="body1" 
               sx={{ 
                 color: 'var(--color-text)', 
-                fontSize: '1.25em', 
+                fontSize: { xs: '1em', sm: '1.15em', md: '1.25em' }, 
                 lineHeight: 1.8,
                 fontWeight: 200,
-                letterSpacing: '0.3px'
+                letterSpacing: '0.3px',
+                textAlign: { xs: 'center', md: 'left' }
               }}
             >
               Hi I love building cool and fun stuff with the current tech.<br />
               Cause its just for fun and enjoyment.
             </Typography>
           </Box>
-          <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-            <img
+          <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center', width: '100%' }}>
+            <Box
+              component="img"
               src="src/assets/skills.svg"
               alt="Skills"
-              style={{
+              sx={{
                 width: '100%',
-                maxWidth: '400px',
+                maxWidth: { xs: '250px', sm: '350px', md: '400px' },
                 height: 'auto',
                 objectFit: 'contain',
                 filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.1))',
@@ -110,7 +121,7 @@ function Mainbox({ selectedSection }: MainboxProps) {
         </Box>
       )}
       {selectedSection === 'Projects' && (
-        <Box sx={{ p: 4 }}>
+        <Box sx={{ p: { xs: 2, sm: 3, md: 4 } }}>
           <Typography 
             variant="h4" 
             sx={{ 
@@ -139,7 +150,7 @@ function Mainbox({ selectedSection }: MainboxProps) {
         </Box>
       )}
       {selectedSection === 'Experiences' && (
-        <Box sx={{ p: 4 }}>
+        <Box sx={{ p: { xs: 2, sm: 3, md: 4 } }}>
           <Typography 
             variant="h4" 
             sx={{ 
