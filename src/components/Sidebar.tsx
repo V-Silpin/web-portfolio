@@ -8,8 +8,6 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from '@mui/material/ListItemIcon';
 
-import PropTypes from 'prop-types';
-
 interface SidebarProps {
   selectedSection: string;
   onSectionChange: (section: string) => void;
@@ -19,19 +17,24 @@ function Sidebar({ selectedSection, onSectionChange }: SidebarProps) {
     const drawerWidth = 240;
 
     return (
-      <Box sx={{ display: 'flex' }}>
+      <Box sx={{ 
+        display: 'flex',
+        width: { xs: '100%', md: drawerWidth },
+        flexShrink: 0
+      }}>
         <CssBaseline />
         <Drawer
           sx={{
-            width: drawerWidth,
+            width: { xs: '100%', md: drawerWidth },
             flexShrink: 0,
             '& .MuiDrawer-paper': {
-              width: drawerWidth,
+              width: { xs: '100%', md: drawerWidth },
               boxSizing: 'border-box',
               position: 'relative',
               background: 'var(--color-sidebar)',
               color: 'var(--color-text)',
-              borderRight: '1px solid var(--color-border)',
+              borderRight: { xs: 'none', md: '1px solid var(--color-border)' },
+              borderBottom: { xs: '1px solid var(--color-border)', md: 'none' },
               transition: 'var(--transition)',
               fontWeight: 200,
               boxShadow: 'var(--shadow-sm)',
@@ -40,8 +43,15 @@ function Sidebar({ selectedSection, onSectionChange }: SidebarProps) {
           variant="permanent"
           anchor="left"
         >
-          <Divider />
-          <List sx={{ flexGrow: 1 }}>
+          <Divider sx={{ display: { xs: 'none', md: 'block' } }} />
+          <List sx={{ 
+            flexGrow: 1,
+            display: 'flex',
+            flexDirection: { xs: 'row', md: 'column' },
+            gap: { xs: 1, md: 0 },
+            p: { xs: 1, md: 0 },
+            justifyContent: { xs: 'space-around', md: 'flex-start' }
+          }}>
             {['About', 'Projects', 'Experiences'].map((text) => (
               <ListItem key={text} disablePadding>
                 <ListItemButton
@@ -70,15 +80,15 @@ function Sidebar({ selectedSection, onSectionChange }: SidebarProps) {
               </ListItem>
             ))}
           </List>
-          <Divider />
+          <Divider sx={{ display: { xs: 'none', md: 'block' } }} />
           {/* Social media buttons at the bottom */}
           <Box
             sx={{
               width: '100%',
               display: 'flex',
               justifyContent: 'center',
-              pb: 4,
-              mb: 4,
+              pb: { xs: 2, md: 4 },
+              mb: { xs: 1, md: 4 },
             }}
           >
             <List sx={{ display: 'flex', flexDirection: 'row', gap: 2, p: 0 }}>
@@ -170,8 +180,4 @@ function Sidebar({ selectedSection, onSectionChange }: SidebarProps) {
     );
 }
 
-Sidebar.propTypes = {
-  selectedSection: PropTypes.string.isRequired,
-  onSectionChange: PropTypes.func.isRequired,
-};
 export default Sidebar;
