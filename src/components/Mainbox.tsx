@@ -26,8 +26,8 @@ function Mainbox({ selectedSection }: { selectedSection: string }) {
           src="src/assets/profile-pic.JPG"
           alt="Varun Mohanta"
           style={{
-            width: '270px',
-            height: '270px',
+            width: '200px',
+            height: '200px',
             borderRadius: '24px',
             objectFit: 'cover',
             border: '3px solid var(--color-primary)',
@@ -47,11 +47,20 @@ function Mainbox({ selectedSection }: { selectedSection: string }) {
 
       {/* Rest of your content can go here */}
       {selectedSection === 'About' && (
-        <Box sx={{ p: 3 }}>
+        <Box sx={{ p: 3, display: 'flex', flexDirection: 'row', gap: 2 }}>
           <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.1em' }}>
             Hi I love building cool and fun stuff with the current tech.<br />
             Cause its just for fun and enjoyment.
           </p>
+          <img
+            src="src/assets/skills.svg"
+            alt="Varun Mohanta"
+            style={{
+              width: '500px',
+              height: '500px',
+              objectFit: 'cover',
+            }}
+          />
         </Box>
       )}
       {selectedSection === 'Projects' && (
@@ -59,6 +68,11 @@ function Mainbox({ selectedSection }: { selectedSection: string }) {
           <Typography variant="h5" sx={{ color: 'var(--color-primary)', mb: 2 }}>Projects</Typography>
           <p style={{ color: 'var(--color-text-secondary)' }}>
             Coming soon: A showcase of my favorite projects!
+          </p>
+          <p>
+            Skills ferowfhboewbh
+            wefvt btehr
+            db6ruhbh
           </p>
         </Box>
       )}
