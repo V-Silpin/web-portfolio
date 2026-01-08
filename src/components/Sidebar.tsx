@@ -9,7 +9,13 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from '@mui/material/ListItemIcon';
 
 import PropTypes from 'prop-types';
-function Sidebar({ selectedSection, onSectionChange }) {
+
+interface SidebarProps {
+  selectedSection: string;
+  onSectionChange: (section: string) => void;
+}
+
+function Sidebar({ selectedSection, onSectionChange }: SidebarProps) {
     const drawerWidth = 240;
 
     return (
