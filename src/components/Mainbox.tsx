@@ -1,96 +1,174 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-import PropTypes from 'prop-types';
-/**
- * @param {{ selectedSection: string }} props
- */
-function Mainbox({ selectedSection }: { selectedSection: string }) {
+interface MainboxProps {
+  selectedSection: string;
+}
+
+function Mainbox({ selectedSection }: MainboxProps) {
   return (
     <Box sx={{ flex: 1, background: 'var(--color-bg)', minHeight: '100vh', transition: 'var(--transition)', display: 'flex', flexDirection: 'column' }}>
       {/* Image & Name section - at the top */}
       <Box sx={{
         display: 'flex',
         alignItems: 'center',
-        gap: 3,
-        p: 3,
-        pt: 2,
+        gap: 4,
+        p: 4,
         background: 'var(--color-card)',
-        borderRadius: '0 0 1em 1em',
-        boxShadow: '0 2px 8px 0 rgba(60,60,60,0.06)',
+        borderRadius: '0 0 24px 24px',
+        boxShadow: 'var(--shadow-lg)',
         borderBottom: '1px solid var(--color-border)',
-        mb: 2,
-        transition: 'var(--transition)'
+        mb: 3,
+        transition: 'var(--transition)',
+        position: 'relative',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '4px',
+          background: 'linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%)',
+        }
       }}>
         <img
           src="src/assets/profile-pic.JPG"
           alt="Varun Mohanta"
           style={{
-            width: '200px',
-            height: '200px',
-            borderRadius: '24px',
+            width: '180px',
+            height: '180px',
+            borderRadius: '32px',
             objectFit: 'cover',
-            border: '3px solid var(--color-primary)',
-            boxShadow: '0 4px 16px 0 rgba(60,60,60,0.12)',
-            background: 'var(--color-bg-alt)'
+            border: 'none',
+            boxShadow: 'var(--shadow-lg)',
+            background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)',
+            padding: '4px',
           }}
         />
         <Box>
-          <Typography variant="h3" component="h1" sx={{ color: 'var(--color-primary)', fontWeight: 700, fontSize: { xs: '2.2rem', sm: '2.8rem', md: '3.2rem' } }}>
+          <Typography 
+            variant="h3" 
+            component="h1" 
+            sx={{ 
+              background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              fontWeight: 200, 
+              fontSize: { xs: '2.5rem', sm: '3rem', md: '3.5rem' },
+              letterSpacing: '1px',
+              mb: 1
+            }}
+          >
             Varun Mohanta
           </Typography>
-          <Typography variant="h5" sx={{ color: 'var(--color-text-secondary)', fontSize: { xs: '1.2rem', sm: '1.5rem', md: '1.7rem' } }}>
+          <Typography 
+            variant="h5" 
+            sx={{ 
+              color: 'var(--color-text-secondary)', 
+              fontWeight: 200, 
+              fontSize: { xs: '1.3rem', sm: '1.6rem', md: '1.8rem' },
+              letterSpacing: '0.5px'
+            }}
+          >
             Soy Dev
           </Typography>
         </Box>
       </Box>
 
-      {/* Rest of your content can go here */}
+      {/* Content sections */}
       {selectedSection === 'About' && (
-        <Box sx={{ p: 3, display: 'flex', flexDirection: 'row', gap: 2 }}>
-          <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.1em' }}>
-            Hi I love building cool and fun stuff with the current tech.<br />
-            Cause its just for fun and enjoyment.
-          </p>
-          <img
-            src="src/assets/skills.svg"
-            alt="Varun Mohanta"
-            style={{
-              width: '500px',
-              height: '500px',
-              objectFit: 'cover',
-            }}
-          />
+        <Box sx={{ p: 4, display: 'flex', flexDirection: 'row', gap: 4, alignItems: 'center' }}>
+          <Box sx={{ flex: 1 }}>
+            <Typography 
+              variant="body1" 
+              sx={{ 
+                color: 'var(--color-text)', 
+                fontSize: '1.25em', 
+                lineHeight: 1.8,
+                fontWeight: 200,
+                letterSpacing: '0.3px'
+              }}
+            >
+              Hi I love building cool and fun stuff with the current tech.<br />
+              Cause its just for fun and enjoyment.
+            </Typography>
+          </Box>
+          <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+            <img
+              src="src/assets/skills.svg"
+              alt="Skills"
+              style={{
+                width: '100%',
+                maxWidth: '400px',
+                height: 'auto',
+                objectFit: 'contain',
+                filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.1))',
+              }}
+            />
+          </Box>
         </Box>
       )}
       {selectedSection === 'Projects' && (
-        <Box sx={{ p: 3 }}>
-          <Typography variant="h5" sx={{ color: 'var(--color-primary)', mb: 2 }}>Projects</Typography>
-          <p style={{ color: 'var(--color-text-secondary)' }}>
+        <Box sx={{ p: 4 }}>
+          <Typography 
+            variant="h4" 
+            sx={{ 
+              background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              fontWeight: 200, 
+              mb: 3,
+              letterSpacing: '0.5px'
+            }}
+          >
+            Projects
+          </Typography>
+          <Typography 
+            variant="body1" 
+            sx={{ 
+              color: 'var(--color-text-secondary)', 
+              fontSize: '1.1em',
+              fontWeight: 200,
+              letterSpacing: '0.3px'
+            }}
+          >
             Coming soon: A showcase of my favorite projects!
-          </p>
-          <p>
-            Skills ferowfhboewbh
-            wefvt btehr
-            db6ruhbh
-          </p>
+          </Typography>
         </Box>
       )}
       {selectedSection === 'Experiences' && (
-        <Box sx={{ p: 3 }}>
-          <Typography variant="h5" sx={{ color: 'var(--color-primary)', mb: 2 }}>Experiences</Typography>
-          <p style={{ color: 'var(--color-text-secondary)' }}>
+        <Box sx={{ p: 4 }}>
+          <Typography 
+            variant="h4" 
+            sx={{ 
+              background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              fontWeight: 200, 
+              mb: 3,
+              letterSpacing: '0.5px'
+            }}
+          >
+            Experiences
+          </Typography>
+          <Typography 
+            variant="body1" 
+            sx={{ 
+              color: 'var(--color-text-secondary)', 
+              fontSize: '1.1em',
+              fontWeight: 200,
+              letterSpacing: '0.3px'
+            }}
+          >
             Coming soon: My professional and learning journey!
-          </p>
+          </Typography>
         </Box>
       )}
     </Box>
   );
 }
-Mainbox.propTypes = {
-  selectedSection: PropTypes.string.isRequired,
-};
-Mainbox.propTypes = {
-  selectedSection: PropTypes.string.isRequired,
-};
+
 export default Mainbox;
