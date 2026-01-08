@@ -1,6 +1,7 @@
 
 import Sidebar from './components/Sidebar';
 import Mainbox from './components/Mainbox';
+import Box from '@mui/material/Box';
 import { useEffect, useState } from 'react';
 
 function App() {
@@ -42,15 +43,16 @@ function App() {
           {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
         </button>
       </div>
-      <div style={{ 
+      <Box sx={{ 
         display: 'flex', 
-        flexDirection: window.innerWidth <= 768 ? 'column' : 'row',
+        flexDirection: { xs: 'column', md: 'row' },
         minHeight: '100vh', 
-        width: '100vw' 
+        width: '100vw',
+        overflow: 'hidden'
       }}>
         <Sidebar selectedSection={selectedSection} onSectionChange={setSelectedSection} />
         <Mainbox selectedSection={selectedSection} />
-      </div>
+      </Box>
     </>
   );
 }
