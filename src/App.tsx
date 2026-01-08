@@ -24,23 +24,30 @@ function App() {
 
   return (
     <>
-      <div style={{ position: 'fixed', top: 16, right: 24, zIndex: 2000 }}>
+      <div style={{ position: 'fixed', top: 24, right: 32, zIndex: 2000 }}>
         <button onClick={toggleTheme} style={{
           background: 'var(--color-btn-bg)',
           color: 'var(--color-btn-text)',
-          border: '1px solid var(--color-border)',
-          borderRadius: '8px',
-          padding: '0.5em 1em',
+          border: 'none',
+          borderRadius: '16px',
+          padding: '0.75em 1.5em',
           cursor: 'pointer',
-          boxShadow: '0 2px 8px 0 rgba(60,60,60,0.06)',
-          fontWeight: 500,
+          boxShadow: 'var(--shadow-lg)',
+          fontWeight: 200,
           fontSize: '1em',
-          transition: 'background 0.25s, color 0.25s',
+          transition: 'var(--transition)',
+          backdropFilter: 'blur(10px)',
+          letterSpacing: '0.5px',
         }}>
-          {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
+          {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
         </button>
       </div>
-      <div style={{ display: 'flex', minHeight: '100vh', width: '100vw' }}>
+      <div style={{ 
+        display: 'flex', 
+        flexDirection: window.innerWidth <= 768 ? 'column' : 'row',
+        minHeight: '100vh', 
+        width: '100vw' 
+      }}>
         <Sidebar selectedSection={selectedSection} onSectionChange={setSelectedSection} />
         <Mainbox selectedSection={selectedSection} />
       </div>
