@@ -100,8 +100,19 @@ function Mainbox({ selectedSection }: MainboxProps) {
                 textAlign: { xs: 'center', md: 'left' }
               }}
             >
-              Hi I love building cool and fun stuff with the current tech.<br />
-              Cause its just for fun and enjoyment.
+              I have a proven ability to design and implement AI systems capable of reasoning, decision-making, and autonomously executing complex tasks. My experience in building multi-agent systems for personalized recommendations and my proficiency in Python and Agentic AI frameworks like Langgraph and Autogen align with the challenges of creating innovative automation solutions.
+              <br /><br />
+              I am eager to contribute to a dynamic team, leverage my problem-solving skills, and quickly master emerging technologies to help clients solve their most critical challenges.
+              <br /><br />
+              <strong>Skills:</strong>
+              <br />
+              <span style={{ color: 'var(--color-primary)' }}>Programming:</span> Python, JavaScript, SQL
+              <br />
+              <span style={{ color: 'var(--color-primary)' }}>ML/AI:</span> Scikit-learn, Pandas, NumPy, Langchain, Langgraph, Autogen, Langfuse, DeepEval, Mem0
+              <br />
+              <span style={{ color: 'var(--color-primary)' }}>Web/DB:</span> Flask, FastAPI, React, Node.js, Express, MongoDB, MySQL
+              <br />
+              <span style={{ color: 'var(--color-primary)' }}>DevOps/Tools:</span> Git, Github, Docker, Kubernetes
             </Typography>
           </Box>
           <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center', width: '100%' }}>
@@ -136,17 +147,177 @@ function Mainbox({ selectedSection }: MainboxProps) {
           >
             Projects
           </Typography>
-          <Typography 
-            variant="body1" 
-            sx={{ 
-              color: 'var(--color-text-secondary)', 
-              fontSize: '1.1em',
-              fontWeight: 200,
-              letterSpacing: '0.3px'
-            }}
-          >
-            Coming soon: A showcase of my favorite projects!
-          </Typography>
+          
+          {/* Project 1 */}
+          <Box sx={{ 
+            mb: 4, 
+            p: 3, 
+            background: 'var(--color-card)', 
+            borderRadius: '20px',
+            boxShadow: 'var(--shadow-md)',
+            border: '1px solid var(--color-border)',
+            transition: 'var(--transition)',
+            '&:hover': {
+              boxShadow: 'var(--shadow-lg)',
+              transform: 'translateY(-4px)',
+            }
+          }}>
+            <Typography 
+              variant="h5" 
+              sx={{ 
+                color: 'var(--color-primary)',
+                fontWeight: 300,
+                mb: 1,
+                letterSpacing: '0.5px'
+              }}
+            >
+              Natural Language to SQL Agent
+            </Typography>
+            <Typography 
+              variant="caption" 
+              sx={{ 
+                color: 'var(--color-text-secondary)',
+                fontSize: '0.9em',
+                mb: 2,
+                display: 'block'
+              }}
+            >
+              June 2024 - July 2024
+            </Typography>
+            <Typography 
+              variant="body2" 
+              sx={{ 
+                color: 'var(--color-text)',
+                fontSize: '1em',
+                lineHeight: 1.7,
+                fontWeight: 200,
+                mb: 2
+              }}
+            >
+              • Developed an advanced agent to convert complex, natural language business questions into executable, high-performance SQL queries, demonstrating expertise in Advanced SQL.
+              <br />
+              • This tool was designed to empower non-technical stakeholders to perform self-serve data analysis, bridging the gap between business questions and data-driven insights.
+            </Typography>
+            <a 
+              href="https://github.com/V-Silpin/sql-ag-v2" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{
+                color: 'var(--color-primary)',
+                textDecoration: 'none',
+                fontSize: '0.95em',
+                fontWeight: 300,
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                transition: 'var(--transition)',
+              }}
+            >
+              View Project →
+            </a>
+          </Box>
+
+          {/* Project 2 */}
+          <Box sx={{ 
+            mb: 4, 
+            p: 3, 
+            background: 'var(--color-card)', 
+            borderRadius: '20px',
+            boxShadow: 'var(--shadow-md)',
+            border: '1px solid var(--color-border)',
+            transition: 'var(--transition)',
+            '&:hover': {
+              boxShadow: 'var(--shadow-lg)',
+              transform: 'translateY(-4px)',
+            }
+          }}>
+            <Typography 
+              variant="h5" 
+              sx={{ 
+                color: 'var(--color-primary)',
+                fontWeight: 300,
+                mb: 1,
+                letterSpacing: '0.5px'
+              }}
+            >
+              Smart India Hackathon Project
+            </Typography>
+            <Typography 
+              variant="caption" 
+              sx={{ 
+                color: 'var(--color-text-secondary)',
+                fontSize: '0.9em',
+                mb: 2,
+                display: 'block'
+              }}
+            >
+              August 2023 - June 2024
+            </Typography>
+            <Typography 
+              variant="body2" 
+              sx={{ 
+                color: 'var(--color-text)',
+                fontSize: '1em',
+                lineHeight: 1.7,
+                fontWeight: 200
+              }}
+            >
+              • Analyzed and optimized complex hospital operational workflows, including patient queuing models, bed availability, and admission processes to improve efficiency.
+              <br />
+              • Designed a data-driven software solution to solve logistical challenges and enhance inventory management, showcasing the ability to tackle open-ended business problems.
+            </Typography>
+          </Box>
+
+          {/* Project 3 */}
+          <Box sx={{ 
+            mb: 4, 
+            p: 3, 
+            background: 'var(--color-card)', 
+            borderRadius: '20px',
+            boxShadow: 'var(--shadow-md)',
+            border: '1px solid var(--color-border)',
+            transition: 'var(--transition)',
+            '&:hover': {
+              boxShadow: 'var(--shadow-lg)',
+              transform: 'translateY(-4px)',
+            }
+          }}>
+            <Typography 
+              variant="h5" 
+              sx={{ 
+                color: 'var(--color-primary)',
+                fontWeight: 300,
+                mb: 1,
+                letterSpacing: '0.5px'
+              }}
+            >
+              AI-Powered Health & Environment Analysis
+            </Typography>
+            <Typography 
+              variant="caption" 
+              sx={{ 
+                color: 'var(--color-text-secondary)',
+                fontSize: '0.9em',
+                mb: 2,
+                display: 'block'
+              }}
+            >
+              Tredence AI Hackathon - March 2024
+            </Typography>
+            <Typography 
+              variant="body2" 
+              sx={{ 
+                color: 'var(--color-text)',
+                fontSize: '1em',
+                lineHeight: 1.7,
+                fontWeight: 200
+              }}
+            >
+              • Built a system to analyze diverse locality data and provide personalized, health-based environmental recommendations.
+              <br />
+              • The project involved identifying key data drivers and using them to derive and communicate actionable insights for users with specific health conditions.
+            </Typography>
+          </Box>
         </Box>
       )}
       {selectedSection === 'Experiences' && (
@@ -174,7 +345,7 @@ function Mainbox({ selectedSection }: MainboxProps) {
               letterSpacing: '0.3px'
             }}
           >
-            Coming soon: My professional and learning journey!
+            To be Added Soon
           </Typography>
         </Box>
       )}
