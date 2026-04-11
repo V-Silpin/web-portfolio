@@ -118,7 +118,7 @@ function Mainbox({ selectedSection }: MainboxProps) {
           <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center', width: '100%' }}>
             <Box
               component="img"
-              src="src/assets/skills.svg"
+              src="src/assets/skills.png"
               alt="Skills"
               sx={{
                 width: '100%',
@@ -336,17 +336,102 @@ function Mainbox({ selectedSection }: MainboxProps) {
           >
             Experiences
           </Typography>
+          {/* Experience 1 */}
+          <Box sx={{ 
+            mb: 4, 
+            p: 3, 
+            background: 'var(--color-card)', 
+            borderRadius: '20px',
+            boxShadow: 'var(--shadow-md)',
+            border: '1px solid var(--color-border)',
+            transition: 'var(--transition)',
+            '&:hover': {
+              boxShadow: 'var(--shadow-lg)',
+              transform: 'translateY(-4px)',
+            }
+          }}>
+            <Typography variant="h5" sx={{ color: 'var(--color-primary)', fontWeight: 300, mb: 1, letterSpacing: '0.5px' }}>
+              AI Systems Developer
+            </Typography>
+            <Typography variant="caption" sx={{ color: 'var(--color-text-secondary)', fontSize: '0.9em', mb: 2, display: 'block' }}>
+              Company Name • Jan 2023 - Present
+            </Typography>
+            <Typography variant="body2" sx={{ color: 'var(--color-text)', fontSize: '1em', lineHeight: 1.7, fontWeight: 200 }}>
+              • Designed and implemented autonomous agentic workflows using Langgraph and Autogen.<br />
+              • Integrated complex LLM-driven features to streamline business processes and improve efficiency.
+            </Typography>
+          </Box>
+
+          {/* Experience 2 */}
+          <Box sx={{ 
+            mb: 4, 
+            p: 3, 
+            background: 'var(--color-card)', 
+            borderRadius: '20px',
+            boxShadow: 'var(--shadow-md)',
+            border: '1px solid var(--color-border)',
+            transition: 'var(--transition)',
+            '&:hover': {
+              boxShadow: 'var(--shadow-lg)',
+              transform: 'translateY(-4px)',
+            }
+          }}>
+            <Typography variant="h5" sx={{ color: 'var(--color-primary)', fontWeight: 300, mb: 1, letterSpacing: '0.5px' }}>
+              Full Stack Software Engineer
+            </Typography>
+            <Typography variant="caption" sx={{ color: 'var(--color-text-secondary)', fontSize: '0.9em', mb: 2, display: 'block' }}>
+              Company Name • Jun 2021 - Dec 2022
+            </Typography>
+            <Typography variant="body2" sx={{ color: 'var(--color-text)', fontSize: '1em', lineHeight: 1.7, fontWeight: 200 }}>
+              • Developed robust backend APIs utilizing Python and Node.js for scalability.<br />
+              • Built responsive UI interfaces using React JS and optimized database queries in SQL.
+            </Typography>
+          </Box>
+        </Box>
+      )}
+      {selectedSection === 'Contact' && (
+        <Box sx={{ p: { xs: 2, sm: 3, md: 4 }, textAlign: 'center', mt: 4 }}>
           <Typography 
-            variant="body1" 
+            variant="h4" 
             sx={{ 
-              color: 'var(--color-text-secondary)', 
-              fontSize: '1.1em',
-              fontWeight: 200,
-              letterSpacing: '0.3px'
+              background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              fontWeight: 200, 
+              mb: 2,
+              letterSpacing: '0.5px'
             }}
           >
-            To be Added Soon
+            Let's Talk
           </Typography>
+          <Typography 
+            variant="body1" 
+            sx={{ color: 'var(--color-text-secondary)', fontSize: '1.1em', fontWeight: 200, mb: 4, maxWidth: '600px', mx: 'auto' }}
+          >
+            I'm currently looking for new opportunities. Whether you have a question or just want to say hi, my inbox is always open!
+          </Typography>
+          <a href="mailto:varun@example.com" style={{ textDecoration: 'none' }}>
+            <Box component="button" sx={{
+              background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)',
+              color: '#ffffff',
+              border: 'none',
+              borderRadius: '30px',
+              px: 4,
+              py: 1.5,
+              fontSize: '1.1em',
+              fontWeight: 300,
+              cursor: 'pointer',
+              boxShadow: 'var(--shadow-md)',
+              transition: 'var(--transition)',
+              '&:hover': {
+                boxShadow: 'var(--shadow-lg)',
+                transform: 'translateY(-2px)'
+              }
+            }}>
+              Say Hello
+            </Box>
+          </a>
         </Box>
       )}
     </Box>
