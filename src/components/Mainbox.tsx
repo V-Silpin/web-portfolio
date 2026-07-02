@@ -1,439 +1,290 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import profilePic from '../assets/profile-pic.JPG';
+import pythonIcon from '../assets/python.svg';
+import jsIcon from '../assets/js.svg';
+import reactIcon from '../assets/react.svg';
+import nodeIcon from '../assets/nodejs.svg';
+import expressIcon from '../assets/express.svg';
+import fastapiIcon from '../assets/fastapi-original.svg';
+import mongoIcon from '../assets/mongo.svg';
+import mysqlIcon from '../assets/mysql.svg';
+import postgresIcon from '../assets/postgresql.svg';
+import dockerIcon from '../assets/docker.svg';
+import k8sIcon from '../assets/kubernetes.svg';
+import gitIcon from '../assets/git.svg';
+import githubIcon from '../assets/github.svg';
+import langchainIcon from '../assets/langchain.svg';
+import langgraphIcon from '../assets/langgraph.svg';
 
 interface MainboxProps {
   selectedSection: string;
 }
 
+const skills = [
+  { name: 'Python', icon: pythonIcon },
+  { name: 'JavaScript', icon: jsIcon },
+  { name: 'React', icon: reactIcon },
+  { name: 'Node.js', icon: nodeIcon },
+  { name: 'Express', icon: expressIcon },
+  { name: 'FastAPI', icon: fastapiIcon },
+  { name: 'MongoDB', icon: mongoIcon },
+  { name: 'MySQL', icon: mysqlIcon },
+  { name: 'PostgreSQL', icon: postgresIcon },
+  { name: 'Docker', icon: dockerIcon },
+  { name: 'Kubernetes', icon: k8sIcon },
+  { name: 'Git', icon: gitIcon },
+  { name: 'GitHub', icon: githubIcon },
+  { name: 'LangChain', icon: langchainIcon },
+  { name: 'LangGraph', icon: langgraphIcon },
+];
+
+const sectionSx = {
+  p: { xs: 3, sm: 4, md: 6 },
+  maxWidth: 900,
+  mx: 'auto',
+  width: '100%',
+  animation: 'fade-in-up 0.4s ease both',
+};
+
+const cardSx = {
+  mb: 3,
+  p: { xs: 2.5, md: 3.5 },
+  background: 'var(--color-card)',
+  borderRadius: 'var(--radius)',
+  border: '1px solid var(--color-border)',
+  transition: 'var(--transition)',
+  '&:hover': {
+    borderColor: 'var(--color-text-secondary)',
+    boxShadow: 'var(--shadow-md)',
+  },
+};
+
+const headingSx = {
+  color: 'var(--color-text)',
+  fontWeight: 600,
+  mb: 4,
+  letterSpacing: '-0.02em',
+  fontSize: { xs: '1.75rem', md: '2rem' },
+};
+
 function Mainbox({ selectedSection }: MainboxProps) {
   return (
     <Box sx={{ flex: 1, background: 'var(--color-bg)', minHeight: '100vh', transition: 'var(--transition)', display: 'flex', flexDirection: 'column' }}>
-      {/* Image & Name section - at the top */}
+      {/* Header — photo & name */}
       <Box sx={{
         display: 'flex',
         flexDirection: { xs: 'column', sm: 'row' },
         alignItems: 'center',
-        gap: { xs: 2, sm: 3, md: 4 },
-        p: { xs: 2, sm: 3, md: 4 },
-        background: 'var(--color-card)',
-        borderRadius: { xs: 0, md: '0 0 24px 24px' },
-        boxShadow: 'var(--shadow-lg)',
+        gap: { xs: 2.5, sm: 4 },
+        p: { xs: 3, sm: 4, md: 6 },
+        maxWidth: 900,
+        mx: 'auto',
+        width: '100%',
         borderBottom: '1px solid var(--color-border)',
-        mb: { xs: 2, md: 3 },
-        transition: 'var(--transition)',
-        position: 'relative',
         textAlign: { xs: 'center', sm: 'left' },
-        '&::before': {
-          content: '""',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: '4px',
-          background: 'linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%)',
-        }
       }}>
         <Box
           component="img"
-          src="src/assets/profile-pic.JPG"
+          src={profilePic}
           alt="Varun Mohanta"
           sx={{
-            width: { xs: '120px', sm: '150px', md: '180px' },
-            height: { xs: '120px', sm: '150px', md: '180px' },
-            borderRadius: { xs: '24px', md: '32px' },
+            width: { xs: '112px', sm: '128px', md: '140px' },
+            height: { xs: '112px', sm: '128px', md: '140px' },
+            borderRadius: '50%',
             objectFit: 'cover',
-            border: 'none',
-            boxShadow: 'var(--shadow-lg)',
-            background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)',
-            p: '4px',
+            border: '1px solid var(--color-border)',
+            flexShrink: 0,
           }}
         />
         <Box>
-          <Typography 
-            variant="h3" 
-            component="h1" 
-            sx={{ 
-              background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              fontWeight: 200, 
-              fontSize: { xs: '2.5rem', sm: '3rem', md: '3.5rem' },
-              letterSpacing: '1px',
-              mb: 1
+          <Typography
+            variant="h3"
+            component="h1"
+            sx={{
+              color: 'var(--color-text)',
+              fontWeight: 700,
+              fontSize: { xs: '2rem', sm: '2.5rem', md: '2.75rem' },
+              letterSpacing: '-0.03em',
+              mb: 0.5,
             }}
           >
             Varun Mohanta
           </Typography>
-          <Typography 
-            variant="h5" 
-            sx={{ 
-              color: 'var(--color-text-secondary)', 
-              fontWeight: 200, 
-              fontSize: { xs: '1.3rem', sm: '1.6rem', md: '1.8rem' },
-              letterSpacing: '0.5px'
+          <Typography
+            sx={{
+              color: 'var(--color-text-secondary)',
+              fontWeight: 400,
+              fontSize: { xs: '1.05rem', sm: '1.15rem' },
+              letterSpacing: '0.01em',
             }}
           >
-            Soy Dev
+            AI Systems Developer
           </Typography>
         </Box>
       </Box>
 
-      {/* Content sections */}
+      {/* About */}
       {selectedSection === 'About' && (
-        <Box sx={{ 
-          p: { xs: 2, sm: 3, md: 4 }, 
-          display: 'flex', 
-          flexDirection: { xs: 'column', md: 'row' }, 
-          gap: { xs: 3, md: 4 }, 
-          alignItems: 'center' 
-        }}>
-          <Box sx={{ flex: 1, width: '100%' }}>
-            <Typography 
-              variant="body1" 
-              sx={{ 
-                color: 'var(--color-text)', 
-                fontSize: { xs: '1em', sm: '1.15em', md: '1.25em' }, 
-                lineHeight: 1.8,
-                fontWeight: 200,
-                letterSpacing: '0.3px',
-                textAlign: { xs: 'center', md: 'left' }
-              }}
-            >
-              I have a proven ability to design and implement AI systems capable of reasoning, decision-making, and autonomously executing complex tasks. My experience in building multi-agent systems for personalized recommendations and my proficiency in Python and Agentic AI frameworks like Langgraph and Autogen align with the challenges of creating innovative automation solutions.
-              <br /><br />
-              I am eager to contribute to a dynamic team, leverage my problem-solving skills, and quickly master emerging technologies to help clients solve their most critical challenges.
-              <br /><br />
-              <strong>Skills:</strong>
-              <br />
-              <span style={{ color: 'var(--color-primary)' }}>Programming:</span> Python, JavaScript, SQL
-              <br />
-              <span style={{ color: 'var(--color-primary)' }}>ML/AI:</span> Scikit-learn, Pandas, NumPy, Langchain, Langgraph, Autogen, Langfuse, DeepEval, Mem0
-              <br />
-              <span style={{ color: 'var(--color-primary)' }}>Web/DB:</span> Flask, FastAPI, React, Node.js, Express, MongoDB, MySQL
-              <br />
-              <span style={{ color: 'var(--color-primary)' }}>DevOps/Tools:</span> Git, Github, Docker, Kubernetes
-            </Typography>
-          </Box>
-          <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center', width: '100%' }}>
-            <Box
-              component="img"
-              src="src/assets/skills.png"
-              alt="Skills"
-              sx={{
-                width: '100%',
-                maxWidth: { xs: '250px', sm: '350px', md: '400px' },
-                height: 'auto',
-                objectFit: 'contain',
-                filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.1))',
-              }}
-            />
+        <Box sx={sectionSx}>
+          <Typography
+            sx={{
+              color: 'var(--color-text)',
+              fontSize: { xs: '1rem', md: '1.075rem' },
+              lineHeight: 1.85,
+              fontWeight: 400,
+              mb: 5,
+            }}
+          >
+            I have a proven ability to design and implement AI systems capable of reasoning, decision-making, and autonomously executing complex tasks. My experience in building multi-agent systems for personalized recommendations and my proficiency in Python and Agentic AI frameworks like Langgraph and Autogen align with the challenges of creating innovative automation solutions.
+            <br /><br />
+            I am eager to contribute to a dynamic team, leverage my problem-solving skills, and quickly master emerging technologies to help clients solve their most critical challenges.
+          </Typography>
+
+          <Typography sx={{ ...headingSx, fontSize: { xs: '1.25rem', md: '1.4rem' }, mb: 3 }}>
+            Skills &amp; Tools
+          </Typography>
+          <Box sx={{
+            display: 'grid',
+            gridTemplateColumns: { xs: 'repeat(3, 1fr)', sm: 'repeat(4, 1fr)', md: 'repeat(5, 1fr)' },
+            gap: { xs: 1.5, md: 2 },
+          }}>
+            {skills.map((skill) => (
+              <Box
+                key={skill.name}
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: 1,
+                  p: { xs: 1.5, md: 2 },
+                  borderRadius: 'var(--radius)',
+                  border: '1px solid var(--color-border)',
+                  background: 'var(--color-card)',
+                  transition: 'var(--transition)',
+                  '&:hover': {
+                    borderColor: 'var(--color-accent-text)',
+                    transform: 'translateY(-3px)',
+                    boxShadow: 'var(--shadow-md)',
+                  },
+                }}
+              >
+                <Box
+                  component="img"
+                  src={skill.icon}
+                  alt={skill.name}
+                  sx={{ width: { xs: 28, md: 34 }, height: { xs: 28, md: 34 }, objectFit: 'contain' }}
+                />
+                <Typography sx={{ fontSize: '0.75rem', color: 'var(--color-text-secondary)', textAlign: 'center', fontWeight: 500 }}>
+                  {skill.name}
+                </Typography>
+              </Box>
+            ))}
           </Box>
         </Box>
       )}
+
+      {/* Projects */}
       {selectedSection === 'Projects' && (
-        <Box sx={{ p: { xs: 2, sm: 3, md: 4 } }}>
-          <Typography 
-            variant="h4" 
-            sx={{ 
-              background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              fontWeight: 200, 
-              mb: 3,
-              letterSpacing: '0.5px'
-            }}
-          >
-            Projects
-          </Typography>
-          
-          {/* Project 1 */}
-          <Box sx={{ 
-            mb: 4, 
-            p: 3, 
-            background: 'var(--color-card)', 
-            borderRadius: '20px',
-            boxShadow: 'var(--shadow-md)',
-            border: '1px solid var(--color-border)',
-            transition: 'var(--transition)',
-            '&:hover': {
-              boxShadow: 'var(--shadow-lg)',
-              transform: 'translateY(-4px)',
-            }
-          }}>
-            <Typography 
-              variant="h5" 
-              sx={{ 
-                color: 'var(--color-primary)',
-                fontWeight: 300,
-                mb: 1,
-                letterSpacing: '0.5px'
-              }}
-            >
+        <Box sx={sectionSx}>
+          <Typography variant="h4" sx={headingSx}>Projects</Typography>
+
+          <Box sx={cardSx}>
+            <Typography variant="h5" sx={{ color: 'var(--color-text)', fontWeight: 600, mb: 0.5, fontSize: '1.2rem' }}>
               Natural Language to SQL Agent
             </Typography>
-            <Typography 
-              variant="caption" 
-              sx={{ 
-                color: 'var(--color-text-secondary)',
-                fontSize: '0.9em',
-                mb: 2,
-                display: 'block'
-              }}
-            >
-              June 2024 - July 2024
+            <Typography variant="caption" sx={{ color: 'var(--color-text-secondary)', fontSize: '0.85rem', mb: 2, display: 'block' }}>
+              June 2024 – July 2024
             </Typography>
-            <Typography 
-              variant="body2" 
-              sx={{ 
-                color: 'var(--color-text)',
-                fontSize: '1em',
-                lineHeight: 1.7,
-                fontWeight: 200,
-                mb: 2
-              }}
-            >
+            <Typography variant="body2" sx={{ color: 'var(--color-text)', fontSize: '0.95rem', lineHeight: 1.75, fontWeight: 400, mb: 2 }}>
               • Developed an advanced agent to convert complex, natural language business questions into executable, high-performance SQL queries, demonstrating expertise in Advanced SQL.
               <br />
-              • This tool was designed to empower non-technical stakeholders to perform self-serve data analysis, bridging the gap between business questions and data-driven insights.
+              • Designed to empower non-technical stakeholders to perform self-serve data analysis, bridging the gap between business questions and data-driven insights.
             </Typography>
-            <a 
-              href="https://github.com/V-Silpin/sql-ag-v2" 
-              target="_blank" 
+            <Box
+              component="a"
+              href="https://github.com/V-Silpin/sql-ag-v2"
+              target="_blank"
               rel="noopener noreferrer"
-              style={{
-                color: 'var(--color-primary)',
-                textDecoration: 'none',
-                fontSize: '0.95em',
-                fontWeight: 300,
+              sx={{
+                color: 'var(--color-accent-text)',
+                fontSize: '0.9rem',
+                fontWeight: 600,
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                transition: 'var(--transition)',
+                borderBottom: '1px solid transparent',
+                pb: '2px',
+                '&:hover': { color: 'var(--color-accent-text)', borderColor: 'var(--color-accent-text)' },
               }}
             >
               View Project →
-            </a>
+            </Box>
           </Box>
 
-          {/* Project 2 */}
-          <Box sx={{ 
-            mb: 4, 
-            p: 3, 
-            background: 'var(--color-card)', 
-            borderRadius: '20px',
-            boxShadow: 'var(--shadow-md)',
-            border: '1px solid var(--color-border)',
-            transition: 'var(--transition)',
-            '&:hover': {
-              boxShadow: 'var(--shadow-lg)',
-              transform: 'translateY(-4px)',
-            }
-          }}>
-            <Typography 
-              variant="h5" 
-              sx={{ 
-                color: 'var(--color-primary)',
-                fontWeight: 300,
-                mb: 1,
-                letterSpacing: '0.5px'
-              }}
-            >
+          <Box sx={cardSx}>
+            <Typography variant="h5" sx={{ color: 'var(--color-text)', fontWeight: 600, mb: 0.5, fontSize: '1.2rem' }}>
               Smart India Hackathon Project
             </Typography>
-            <Typography 
-              variant="caption" 
-              sx={{ 
-                color: 'var(--color-text-secondary)',
-                fontSize: '0.9em',
-                mb: 2,
-                display: 'block'
-              }}
-            >
-              August 2023 - June 2024
+            <Typography variant="caption" sx={{ color: 'var(--color-text-secondary)', fontSize: '0.85rem', mb: 2, display: 'block' }}>
+              August 2023 – June 2024
             </Typography>
-            <Typography 
-              variant="body2" 
-              sx={{ 
-                color: 'var(--color-text)',
-                fontSize: '1em',
-                lineHeight: 1.7,
-                fontWeight: 200
-              }}
-            >
+            <Typography variant="body2" sx={{ color: 'var(--color-text)', fontSize: '0.95rem', lineHeight: 1.75, fontWeight: 400 }}>
               • Analyzed and optimized complex hospital operational workflows, including patient queuing models, bed availability, and admission processes to improve efficiency.
               <br />
               • Designed a data-driven software solution to solve logistical challenges and enhance inventory management, showcasing the ability to tackle open-ended business problems.
             </Typography>
           </Box>
 
-          {/* Project 3 */}
-          <Box sx={{ 
-            mb: 4, 
-            p: 3, 
-            background: 'var(--color-card)', 
-            borderRadius: '20px',
-            boxShadow: 'var(--shadow-md)',
-            border: '1px solid var(--color-border)',
-            transition: 'var(--transition)',
-            '&:hover': {
-              boxShadow: 'var(--shadow-lg)',
-              transform: 'translateY(-4px)',
-            }
-          }}>
-            <Typography 
-              variant="h5" 
-              sx={{ 
-                color: 'var(--color-primary)',
-                fontWeight: 300,
-                mb: 1,
-                letterSpacing: '0.5px'
-              }}
-            >
-              AI-Powered Health & Environment Analysis
+          <Box sx={cardSx}>
+            <Typography variant="h5" sx={{ color: 'var(--color-text)', fontWeight: 600, mb: 0.5, fontSize: '1.2rem' }}>
+              AI-Powered Health &amp; Environment Analysis
             </Typography>
-            <Typography 
-              variant="caption" 
-              sx={{ 
-                color: 'var(--color-text-secondary)',
-                fontSize: '0.9em',
-                mb: 2,
-                display: 'block'
-              }}
-            >
-              Tredence AI Hackathon - March 2024
+            <Typography variant="caption" sx={{ color: 'var(--color-text-secondary)', fontSize: '0.85rem', mb: 2, display: 'block' }}>
+              Tredence AI Hackathon – March 2024
             </Typography>
-            <Typography 
-              variant="body2" 
-              sx={{ 
-                color: 'var(--color-text)',
-                fontSize: '1em',
-                lineHeight: 1.7,
-                fontWeight: 200
-              }}
-            >
+            <Typography variant="body2" sx={{ color: 'var(--color-text)', fontSize: '0.95rem', lineHeight: 1.75, fontWeight: 400 }}>
               • Built a system to analyze diverse locality data and provide personalized, health-based environmental recommendations.
               <br />
-              • The project involved identifying key data drivers and using them to derive and communicate actionable insights for users with specific health conditions.
+              • Identified key data drivers and used them to derive and communicate actionable insights for users with specific health conditions.
             </Typography>
           </Box>
         </Box>
       )}
+
+      {/* Experiences */}
       {selectedSection === 'Experiences' && (
-        <Box sx={{ p: { xs: 2, sm: 3, md: 4 } }}>
-          <Typography 
-            variant="h4" 
-            sx={{ 
-              background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              fontWeight: 200, 
-              mb: 3,
-              letterSpacing: '0.5px'
-            }}
-          >
-            Experiences
-          </Typography>
-          {/* Experience 1 */}
-          <Box sx={{ 
-            mb: 4, 
-            p: 3, 
-            background: 'var(--color-card)', 
-            borderRadius: '20px',
-            boxShadow: 'var(--shadow-md)',
-            border: '1px solid var(--color-border)',
-            transition: 'var(--transition)',
-            '&:hover': {
-              boxShadow: 'var(--shadow-lg)',
-              transform: 'translateY(-4px)',
-            }
-          }}>
-            <Typography variant="h5" sx={{ color: 'var(--color-primary)', fontWeight: 300, mb: 1, letterSpacing: '0.5px' }}>
+        <Box sx={sectionSx}>
+          <Typography variant="h4" sx={headingSx}>Experience</Typography>
+
+          <Box sx={cardSx}>
+            <Typography variant="h5" sx={{ color: 'var(--color-text)', fontWeight: 600, mb: 0.5, fontSize: '1.2rem' }}>
               AI Systems Developer
             </Typography>
-            <Typography variant="caption" sx={{ color: 'var(--color-text-secondary)', fontSize: '0.9em', mb: 2, display: 'block' }}>
-              Company Name • Jan 2023 - Present
+            <Typography variant="caption" sx={{ color: 'var(--color-text-secondary)', fontSize: '0.85rem', mb: 2, display: 'block' }}>
+              Company Name • Jan 2023 – Present
             </Typography>
-            <Typography variant="body2" sx={{ color: 'var(--color-text)', fontSize: '1em', lineHeight: 1.7, fontWeight: 200 }}>
+            <Typography variant="body2" sx={{ color: 'var(--color-text)', fontSize: '0.95rem', lineHeight: 1.75, fontWeight: 400 }}>
               • Designed and implemented autonomous agentic workflows using Langgraph and Autogen.<br />
               • Integrated complex LLM-driven features to streamline business processes and improve efficiency.
             </Typography>
           </Box>
 
-          {/* Experience 2 */}
-          <Box sx={{ 
-            mb: 4, 
-            p: 3, 
-            background: 'var(--color-card)', 
-            borderRadius: '20px',
-            boxShadow: 'var(--shadow-md)',
-            border: '1px solid var(--color-border)',
-            transition: 'var(--transition)',
-            '&:hover': {
-              boxShadow: 'var(--shadow-lg)',
-              transform: 'translateY(-4px)',
-            }
-          }}>
-            <Typography variant="h5" sx={{ color: 'var(--color-primary)', fontWeight: 300, mb: 1, letterSpacing: '0.5px' }}>
+          <Box sx={cardSx}>
+            <Typography variant="h5" sx={{ color: 'var(--color-text)', fontWeight: 600, mb: 0.5, fontSize: '1.2rem' }}>
               Full Stack Software Engineer
             </Typography>
-            <Typography variant="caption" sx={{ color: 'var(--color-text-secondary)', fontSize: '0.9em', mb: 2, display: 'block' }}>
-              Company Name • Jun 2021 - Dec 2022
+            <Typography variant="caption" sx={{ color: 'var(--color-text-secondary)', fontSize: '0.85rem', mb: 2, display: 'block' }}>
+              Company Name • Jun 2021 – Dec 2022
             </Typography>
-            <Typography variant="body2" sx={{ color: 'var(--color-text)', fontSize: '1em', lineHeight: 1.7, fontWeight: 200 }}>
+            <Typography variant="body2" sx={{ color: 'var(--color-text)', fontSize: '0.95rem', lineHeight: 1.75, fontWeight: 400 }}>
               • Developed robust backend APIs utilizing Python and Node.js for scalability.<br />
               • Built responsive UI interfaces using React JS and optimized database queries in SQL.
             </Typography>
           </Box>
         </Box>
       )}
-      {selectedSection === 'Contact' && (
-        <Box sx={{ p: { xs: 2, sm: 3, md: 4 }, textAlign: 'center', mt: 4 }}>
-          <Typography 
-            variant="h4" 
-            sx={{ 
-              background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              fontWeight: 200, 
-              mb: 2,
-              letterSpacing: '0.5px'
-            }}
-          >
-            Let's Talk
-          </Typography>
-          <Typography 
-            variant="body1" 
-            sx={{ color: 'var(--color-text-secondary)', fontSize: '1.1em', fontWeight: 200, mb: 4, maxWidth: '600px', mx: 'auto' }}
-          >
-            I'm currently looking for new opportunities. Whether you have a question or just want to say hi, my inbox is always open!
-          </Typography>
-          <a href="mailto:varun@example.com" style={{ textDecoration: 'none' }}>
-            <Box component="button" sx={{
-              background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)',
-              color: '#ffffff',
-              border: 'none',
-              borderRadius: '30px',
-              px: 4,
-              py: 1.5,
-              fontSize: '1.1em',
-              fontWeight: 300,
-              cursor: 'pointer',
-              boxShadow: 'var(--shadow-md)',
-              transition: 'var(--transition)',
-              '&:hover': {
-                boxShadow: 'var(--shadow-lg)',
-                transform: 'translateY(-2px)'
-              }
-            }}>
-              Say Hello
-            </Box>
-          </a>
-        </Box>
-      )}
+
     </Box>
   );
 }

@@ -57,14 +57,14 @@ function Sidebar({ selectedSection, onSectionChange, theme, toggleTheme }: Sideb
           >
             <button
               onClick={toggleTheme}
+              aria-label="Toggle color theme"
               style={{
                 background: 'var(--color-card)',
-                color: 'var(--color-primary)',
+                color: 'var(--color-text)',
                 border: '1px solid var(--color-border)',
-                borderRadius: '12px',
+                borderRadius: '10px',
                 padding: '0.5em',
                 cursor: 'pointer',
-                boxShadow: 'var(--shadow-sm)',
                 transition: 'var(--transition)',
                 display: 'flex',
                 alignItems: 'center',
@@ -73,15 +73,11 @@ function Sidebar({ selectedSection, onSectionChange, theme, toggleTheme }: Sideb
                 minHeight: '40px',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)';
-                e.currentTarget.style.borderColor = 'transparent';
-                e.currentTarget.style.boxShadow = 'var(--shadow-md)';
+                e.currentTarget.style.borderColor = 'var(--color-text-secondary)';
                 e.currentTarget.style.transform = 'translateY(-2px)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'var(--color-card)';
                 e.currentTarget.style.borderColor = 'var(--color-border)';
-                e.currentTarget.style.boxShadow = 'var(--shadow-sm)';
                 e.currentTarget.style.transform = 'translateY(0)';
               }}
             >
@@ -97,24 +93,22 @@ function Sidebar({ selectedSection, onSectionChange, theme, toggleTheme }: Sideb
             p: { xs: 1, md: 0 },
             justifyContent: { xs: 'space-around', md: 'flex-start' }
           }}>
-            {['About', 'Projects', 'Experiences', 'Contact'].map((text) => (
+            {['About', 'Projects', 'Experiences'].map((text) => (
               <ListItem key={text} disablePadding>
                 <ListItemButton
                   sx={{
-                    borderRadius: '12px',
+                    borderRadius: '10px',
                     mx: 1,
                     my: 0.5,
-                    fontWeight: 200,
-                    letterSpacing: '0.5px',
+                    fontWeight: 500,
+                    letterSpacing: '0.01em',
                     color: selectedSection === text ? '#ffffff' : 'var(--color-text)',
-                    background: selectedSection === text ? 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)' : 'none',
-                    boxShadow: selectedSection === text ? 'var(--shadow-md)' : 'none',
+                    background: selectedSection === text ? 'var(--color-accent)' : 'none',
                     '&:hover': {
-                      background: selectedSection === text 
-                        ? 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)'
+                      background: selectedSection === text
+                        ? 'var(--color-accent)'
                         : 'var(--color-bg-alt)',
-                      color: selectedSection === text ? '#ffffff' : 'var(--color-primary)',
-                      boxShadow: 'var(--shadow-sm)',
+                      color: selectedSection === text ? '#ffffff' : 'var(--color-accent-text)',
                     },
                     transition: 'var(--transition)',
                   }}
@@ -145,24 +139,24 @@ function Sidebar({ selectedSection, onSectionChange, theme, toggleTheme }: Sideb
                 <ListItem key={social.name} sx={{ p: 0 }}>
                   <a href={social.url} target="_blank" rel="noopener noreferrer" style={{ display: 'flex' }}>
                     <ListItemButton sx={{
-                      borderRadius: '16px',
+                      borderRadius: '10px',
                       background: 'var(--color-card)',
-                      color: 'var(--color-primary)',
+                      color: 'var(--color-text)',
                       border: '1px solid var(--color-border)',
                       boxSizing: 'border-box',
-                      minWidth: 52,
-                      minHeight: 52,
-                      boxShadow: 'var(--shadow-sm)',
+                      minWidth: 48,
+                      minHeight: 48,
+                      display: 'flex',
+                      justifyContent: 'center',
                       '&:hover': {
-                        background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)',
+                        background: 'var(--color-accent)',
                         color: '#ffffff',
-                        borderColor: 'transparent',
-                        boxShadow: 'var(--shadow-md)',
+                        borderColor: 'var(--color-accent)',
                         transform: 'translateY(-2px)',
                       },
                       transition: 'var(--transition)',
                     }}>
-                      <ListItemIcon sx={{ minWidth: 0 }}>
+                      <ListItemIcon sx={{ minWidth: 0, color: 'inherit' }}>
                         {social.icon}
                       </ListItemIcon>
                     </ListItemButton>
